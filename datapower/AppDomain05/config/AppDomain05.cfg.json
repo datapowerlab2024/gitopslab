@@ -1,6 +1,6 @@
 {
   "@build":"365335",
-  "@timestamp":"Fri Jul 26 08:04:09 2024",
+  "@timestamp":"Fri Jul 26 09:51:11 2024",
   "configuration":[
     {
       "DomainSettings":{
@@ -60,6 +60,15 @@
       }
     },
     {
+      "CryptoCertificate":{
+        "@name":"swat",
+        "mAdminState":"enabled",
+        "Filename":"cert:///id-gitops-sscert.pem",
+        "PasswordAlias":"off",
+        "IgnoreExpiration":"off"
+      }
+    },
+    {
       "CryptoKey":{
         "@name":"9",
         "mAdminState":"enabled",
@@ -104,6 +113,14 @@
         "@name":"sshkey",
         "mAdminState":"enabled",
         "Filename":"cert:///sshkey.pem",
+        "PasswordAlias":"off"
+      }
+    },
+    {
+      "CryptoKey":{
+        "@name":"swat",
+        "mAdminState":"enabled",
+        "Filename":"cert:///id-gitops-privkey.pem",
         "PasswordAlias":"off"
       }
     },
@@ -278,6 +295,44 @@
           "password":"off"
         },
         "UserPrivateKey":"gitops-sshkey",
+        "PersistentConnections":"on",
+        "PersistentConnectionTimeout":120,
+        "StrictHostKeyChecking":"off",
+        "Ciphers":[
+          "AES128-CTR",
+          "AES192-CTR",
+          "AES256-CTR",
+          "AES128-GCM_AT_OPENSSH.COM",
+          "AES256-GCM_AT_OPENSSH.COM"
+        ],
+        "KEXAlg":[
+          "CURVE25519-SHA256_AT_LIBSSH.ORG",
+          "ECDH-SHA2-NISTP256",
+          "ECDH-SHA2-NISTP384",
+          "ECDH-SHA2-NISTP521",
+          "DIFFIE-HELLMAN-GROUP-EXCHANGE-SHA256"
+        ],
+        "MACAlg":[
+          "UMAC-64_AT_OPENSSH.COM",
+          "UMAC-128_AT_OPENSSH.COM",
+          "HMAC-SHA2-256",
+          "HMAC-SHA2-512",
+          "HMAC-SHA1"
+        ],
+        "LegacyKex":"no"
+      }
+    },
+    {
+      "SSHClientProfile":{
+        "@name":"gitpops-ssh-client-profile",
+        "mAdminState":"enabled",
+        "UserName":"git",
+        "ProfileUsage":"sftp",
+        "SSHUserAuthentication":{
+          "publickey":"on",
+          "password":"off"
+        },
+        "UserPrivateKey":"sshkey",
         "PersistentConnections":"on",
         "PersistentConnectionTimeout":120,
         "StrictHostKeyChecking":"off",
