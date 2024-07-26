@@ -691,7 +691,7 @@
         },
         "ParseMetricsResultType":"none",
         "TransformLanguage":"none",
-        "GatewayScriptLocation":"local:///js",
+        "GatewayScriptLocation":"local:///gws.js",
         "ActionDebug":"off",
         "Output":"PIPE",
         "NoTranscodeUtf8":"off",
